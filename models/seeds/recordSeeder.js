@@ -9,10 +9,52 @@ db.on('error', () => {
 
 db.once('open', () => {
   console.log('mongodb connected!')
-  for (i = 0; i < 5; i++) {
-    Record.create({ name: 'Name', amount: 0, data: 'Year/Month/Day', totalAmount: 0 })
-  }
-  console.log('done')
+  Record.create(
+    {
+      icon: '<i class="fas fa-utensils"></i>',
+      name: '午餐',
+      amount: 60,
+      date: '2020-8-5',
+      category: '餐飲食品'
+    },
+
+    {
+      icon: '<i class="fas fa-home"></i>',
+      name: '書桌',
+      amount: 7000,
+      date: '2020-8-5',
+      category: '家居物業'
+    },
+
+
+
+    {
+      icon: '<i class="fas fa-shuttle-van"></i>',
+      name: '捷運',
+      amount: 100,
+      date: '2020-8-5',
+      category: '交通出行'
+    },
+
+
+
+    {
+      icon: '<i class="fas fa-grin-beam"></i>',
+      name: '電影',
+      amount: 300,
+      date: '2020-8-5',
+      category: '休閒娛樂'
+    },
+
+    {
+      icon: '<i class="fas fa-pen"></i>',
+      name: '保險費',
+      amount: 3500,
+      date: '2020-8-5',
+      category: '其他'
+    },
+
+  )
 
 })
 

@@ -4,49 +4,49 @@ const recordSchema = new Schema({
 
   name: {
     type: String,
-    // required: true
+
+  },
+
+  category: {
+    type: String,
   },
 
   category1: {
-    type: String,
-    //required: true
+    type: String
   },
 
   category2: {
-    type: String,
-    //required: true
+    type: String
   },
-
   category3: {
-    type: String,
-    //required: true
+    type: String
   },
 
   category4: {
-    type: String,
-    //required: true
+    type: String
   },
 
   category5: {
-    type: String,
-    //required: true
+    type: String
   },
 
 
+  icon: {
+    type: String,
+  },
+
   date: {
-    type: Date,
-    default: Date.now
-    // required: true
+    type: String,
   },
 
   amount: {
     type: Number,
-    // required: true
+
   },
 
   totalAmount: {
     type: Number,
-    // required: true
+
   }
 })
 
