@@ -12,22 +12,22 @@ const recordSchema = new Schema({
   },
 
   category1: {
-    type: String
+    type: String,
   },
 
   category2: {
-    type: String
+    type: String,
   },
   category3: {
-    type: String
+    type: String,
   },
 
   category4: {
-    type: String
+    type: String,
   },
 
   category5: {
-    type: String
+    type: String,
   },
 
 

@@ -12,24 +12,24 @@ db.once('open', () => {
   Record.create(
     {
       category1: '家居物業',
-      icon: '<i class="fas fa-home"></i>'
+      icon1: '<i class="fas fa-home"></i>'
 
     },
     {
       category2: '交通出行',
-      icon: '<i class="fas fa-shuttle-van"></i>'
+      icon2: '<i class="fas fa-shuttle-van"></i>'
     },
     {
       category3: '休閒娛樂',
-      icon: '<i class="fas fa-grin-beam"></i>'
+      icon3: '<i class="fas fa-grin-beam"></i>'
     },
     {
       category4: '餐飲食品',
-      icon: '<i class="fas fa-utensils"></i>'
+      icon4: '<i class="fas fa-utensils"></i>'
     },
     {
       category5: '其他',
-      icon: '<i class="fas fa-pen"></i>'
+      icon5: '<i class="fas fa-pen"></i>'
     }
   )
 })
