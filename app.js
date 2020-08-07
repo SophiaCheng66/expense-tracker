@@ -37,11 +37,41 @@ app.get('/records/new', (req, res) => {
 
 app.post('/records', (req, res) => {
   console.log(req.body)
-  const userContent = req.body
-  return Record.create(userContent)
+  const name = req.body.name
+  const date = req.body.date
+  const amount = req.body.amount
+  const category = req.body.category
+  if (category === '家居物業') {
+    icon = '<i class="fas fa-home"></i>'
+  } else if (category === '交通出行') {
+    icon = '<i class="fas fa-shuttle-van"></i>'
+  } else if (category === '休閒娛樂') {
+    icon = '<i class="fas fa-grin-beam"></i>'
+  } else if (category === '餐飲食品') {
+    icon = '<i class="fas fa-utensils"></i>'
+  } else if (category === '其他') {
+    icon = '<i class="fas fa-pen"></i>'
+  }
+
+  // console.log(icon)
+  Record.create({
+    icon: icon,
+    name: name,
+    date: date,
+    amount: amount,
+    category: category
+  })
     .then(() => res.redirect('/'))
     .catch(error => console.log(error))
 })
+
+
+
+
+
+
+
+
 
 
 
