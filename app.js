@@ -109,11 +109,13 @@ app.post('/records/:record_id/edit', (req, res) => {
     .catch(error => console.log(error))
 })
 
-
-
-
-
-
+app.post('/records/:record_id/delete', (req, res) => {
+  const id = req.params.record_id
+  Record.findById(id)
+    .then(recordId => recordId.remove())
+    .then(() => res.redirect('/'))
+    .catch(error => console.log(error))
+})
 
 
 app.listen(port, () => {
