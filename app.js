@@ -23,7 +23,6 @@ app.use(bodyParser.urlencoded({ extended: true }))
 
 
 
-
 app.get('/', (req, res) => {
   Record.find()
     .lean()
@@ -66,9 +65,49 @@ app.post('/records', (req, res) => {
 })
 
 
+app.get('/records/:record_id/edit', (req, res) => {
+  const id = req.params.record_id
+  Record.findById(id)
+    .lean()
+    .then(recordId => res.render('edit', { recordId }))
+    .catch(error => console.log(error))
+})
 
 
 
+
+app.post('/records/:record_id/edit', (req, res) => {
+  const id = req.params.record_id
+  // console.log(req.body.name)
+  const name = req.body.name
+  const date = req.body.date
+  const amount = req.body.amount
+  const category = req.body.category
+  if (category === '家居物業') {
+    icon = '<i class="fas fa-home"></i>'
+  } else if (category === '交通出行') {
+    icon = '<i class="fas fa-shuttle-van"></i>'
+  } else if (category === '休閒娛樂') {
+    icon = '<i class="fas fa-grin-beam"></i>'
+  } else if (category === '餐飲食品') {
+    icon = '<i class="fas fa-utensils"></i>'
+  } else if (category === '其他') {
+    icon = '<i class="fas fa-pen"></i>'
+  }
+
+  Record.findById(id)
+    .then(recordId => {
+      recordId.name = name,
+        recordId.date = date,
+        recordId.name = name,
+        recordId.amount = amount,
+        recordId.category = category,
+        recordId.icon = icon
+      recordId.save()
+    })
+    .then(() => res.redirect('/'))
+    .catch(error => console.log(error))
+})
 
 
 
