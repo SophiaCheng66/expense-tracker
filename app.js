@@ -24,6 +24,9 @@ app.engine('handlebars', exphbs({ defaultLayout: "main" }))
 app.set('view engine', 'handlebars')
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(methodOverride('_method'))
+app.use(express.static('public'))
+
+
 
 
 app.get('/', (req, res) => {
@@ -32,6 +35,21 @@ app.get('/', (req, res) => {
     .then(records => res.render('index', { records }))
     .catch(error => console.log(error))
 })
+
+app.post('/totalAmount', (req, res) => {
+  Record.find()
+    .lean()
+    .then(items => {
+      let totalAmount = 0
+      for (let i = 0; i < items.length; i++) {
+        totalAmount += items[i].amount
+      }
+      res.render('amount', { items, totalAmount: totalAmount })
+    })
+    .catch(error => console.log(error))
+})
+
+
 
 app.get('/records/new', (req, res) => {
   res.render('new')
