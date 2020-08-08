@@ -109,18 +109,6 @@ app.get('/category/:C', (req, res) => {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 app.get('/records/new', (req, res) => {
   res.render('new')
 })

@@ -1,66 +1,68 @@
-<div class="container">
-  <div class="row d-flex flex-column align-items-center">
+<body id="index">
+  <div class="container">
+    <div class="row d-flex flex-column align-items-center">
 
-    {{!-- dropdown --}}
-    <div class="dropdown  bg-white text-dark">
-      <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
-        aria-haspopup="true" aria-expanded="false">
-        類別
-      </a>
+      {{!-- dropdown --}}
+      <div id="category" class="dropdown  bg-transparent text-dark">
+        <a class="btn btn-secondary dropdown-toggle  bg-white text-dark  " href="#" role="button" id="dropdownMenuLink"
+          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="width:500px; text-align:left">
+          類別
+        </a>
 
-      <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-        <a class="dropdown-item" href="/category/H">家居物業</a>
-        <a class="dropdown-item" href="/category/T">交通出行</a>
-        <a class="dropdown-item" href="/category/E">休閒娛樂</a>
-        <a class="dropdown-item" href="/category/F">餐飲食品</a>
-        <a class="dropdown-item" href="/category/O">其他</a>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+          <a class="dropdown-item" href="/category/H">家居物業</a>
+          <a class="dropdown-item" href="/category/T">交通出行</a>
+          <a class="dropdown-item" href="/category/E">休閒娛樂</a>
+          <a class="dropdown-item" href="/category/F">餐飲食品</a>
+          <a class="dropdown-item" href="/category/O">其他</a>
+        </div>
       </div>
-    </div>
 
-    <form action="/totalAmount" method="post">
-      <div class="d-flex flex-row">
-        <button type="submit">
-          <h4>總金額:</h4>
-        </button>
-        <h3>{{totalAmount}}</h3>
-      </div>
-    </form>
-
-
-
-    {{#each home}}
-    <div class="d-flex flex-row">
-      <ul class="list-group" style="width:500px;">
-        <li class="list-group-item">
-          <div class="d-flex flex-row">
-            {{{this.icon}}}
-
-            <div>
-              <h6>{{this.name}}</h6>
-              <h6>{{this.date}}</h6>
-            </div>
-
-            <div class="amount">
-              {{this.amount}}
-            </div>
-
-
-          </div>
-        </li>
-      </ul>
-
-      <div>
-        <a class='btn btn-outline-warning' href="/records/{{this._id}}/edit">修改</a>
-
-        <form style="display:inline" action="/records/{{this._id}}?_method=delete" method="post">
-          <button type="submit" class='btn btn-outline-warning'>刪除
+      <form action="/totalAmount" method="post">
+        <div id="amountButton" class="d-flex flex-row">
+          <button id="amountButton1" type="submit" class="btn btn-outline-warning">
+            <h4>總金額:</h4>
           </button>
-        </form>
+          <h3 class="totalAmount">{{totalAmount}}</h3>
+        </div>
+      </form>
+
+
+
+      {{#each home}}
+      <div id="list" class="d-flex flex-row">
+        <ul class="list-group" style="width:500px;">
+          <li class="list-group-item">
+            <div class="d-flex flex-row">
+              {{{this.icon}}}
+
+              <div>
+                <h6 id="name">{{this.name}}</h6>
+                <h6 id="date">{{this.date}}</h6>
+              </div>
+
+              <div class="amount">
+                {{this.amount}}
+              </div>
+
+
+            </div>
+          </li>
+        </ul>
+
+        <div id="editButton">
+          <a class='btn btn-outline-warning' href="/records/{{this._id}}/edit">修改</a>
+
+          <form style="display:inline" action="/records/{{this._id}}?_method=delete" method="post">
+            <button type="submit" class='btn btn-outline-warning'>刪除
+            </button>
+          </form>
+        </div>
+
       </div>
+      {{/each}}
 
+      <a id="newButton" class='btn btn-outline-warning' href="/records/new">新增支出</a>
     </div>
-    {{/each}}
-
-    <a class='btn btn-outline-warning' href="/records/new">新增支出</a>
   </div>
-</div>
+</body>
