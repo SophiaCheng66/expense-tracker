@@ -1,10 +1,10 @@
 
 #index{
-  background-image: url('https://cdn.pixabay.com/photo/2019/05/04/18/13/quran-4178711__340.jpg');
+  background-image: url('https://cdn.pixabay.com/photo/2016/12/26/17/28/food-1932466__340.jpg');
   }
 
   #editBody{
-    background-image: url('https://cdn.pixabay.com/photo/2017/04/05/15/59/child-2205449__340.jpg');
+    background-image: url('https://cdn.pixabay.com/photo/2016/12/26/17/28/food-1932466__340.jpg');
   }
 
 
@@ -80,12 +80,13 @@ margin-right:30px;
 
 .modify{
   margin-left:100px;
-  color:#f4f5f9;
+  color:#FBFFB9;
   
 }
 
 .modifyItem{
-  color:#f4f5f9;
+  color:#FBFFB9;
+  font-weight: 900;
 }
 
 #input1{
